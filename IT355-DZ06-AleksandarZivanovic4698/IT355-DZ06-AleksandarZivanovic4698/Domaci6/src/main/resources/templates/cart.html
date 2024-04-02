@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Cart</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container">
+  <h1>Cart</h1>
+  <!-- Prikaz stavki korpe -->
+  <table class="table">
+    <thead>
+    <tr>
+      <th>Product</th>
+      <th>Price</th>
+    </tr>
+    </thead>
+    <tbody>
+    <!-- Iteriranje kroz stavke korpe -->
+    <tr th:each="cartItem : ${cartItems}">
+      <td th:text="${cartItem.product.name}"></td>
+      <td th:text="${cartItem.product.price}"></td>
+    </tr>
+    </tbody>
+  </table>
+  <!-- Checkout dugme -->
+  <a th:href="@{/checkout}" class="btn btn-primary">Checkout</a>
+  <!-- Povratak na pregled proizvoda link -->
+  <a th:href="@{/}" class="btn btn-secondary">Back to Products</a>
+</div>
+</body>
+</html>
