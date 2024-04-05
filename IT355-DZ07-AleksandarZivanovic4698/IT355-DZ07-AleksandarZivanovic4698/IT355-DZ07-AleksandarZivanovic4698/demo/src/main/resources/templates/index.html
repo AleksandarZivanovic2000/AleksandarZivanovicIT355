@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Restoran</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+<a href="#" th:href="@{/napraviRestoran}">Create restoran</a>
+<a href="#" th:href="@{/jela}">Create Jela</a>
+
+<table>
+    <thead>
+    <tr>
+        <th>Naziv</th>
+        <th>Adresa</th>
+        <th>Telefon</th>
+        <th>Ocena</th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="restoran : ${restorani}">
+        <td th:text="${restoran.naziv}"></td>
+        <td th:text="${restoran.adresa}"></td>
+        <td th:text="${restoran.telefon}"></td>
+        <td th:text="${restoran.ocena}"></td>
+        <td>
+            <a th:href="@{/azuriranjeRestorana(id=${restoran.id})}">Update</a>
+            <a th:href="@{/brisanjeRestorana(id=${restoran.id})}" onclick="return confirm('Are you sure?')">Delete</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
